@@ -22,7 +22,10 @@ Console.WriteLine("Write player 2 name:");
 string p2Name = Console.ReadLine();
 p2.playerName = p2Name;
 
+Player player;
+
 while(p1.hp>0 && p2.hp>0){
+
     Console.WriteLine($"{p1.playerName} starts punching");
     p2.playerPunshed();
     Console.WriteLine($"{p1.playerName} hp: {p1.hp}");
@@ -34,7 +37,7 @@ while(p1.hp>0 && p2.hp>0){
         p1.amountHealthBottles--;
     }
     
-
+    
 }
 
 Console.ReadLine();
