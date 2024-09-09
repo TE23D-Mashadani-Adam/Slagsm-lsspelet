@@ -26,6 +26,8 @@ Player player;
 
 while(p1.hp>0 && p2.hp>0){
 
+    //Player 1
+
     Console.WriteLine($"{p1.playerName} starts punching");
     p2.playerPunshed();
     Console.WriteLine($"{p1.playerName} hp: {p1.hp}");
@@ -35,8 +37,27 @@ while(p1.hp>0 && p2.hp>0){
     if(healthBottleAns=="yes"){
         p1.hp += 30;
         p1.amountHealthBottles--;
+        Console.WriteLine($"{p1.playerName} hp: {p1.hp}");
+    }else{
+        Console.WriteLine("\n");
     }
-    
+
+    //Player 2
+
+    Console.WriteLine($"{p2.playerName} starts punching");
+    p2.playerPunshed();
+    Console.WriteLine($"{p2.playerName} hp: {p2.hp}");
+    Console.WriteLine($"{p2.playerName} heal bottles: {p2.amountHealthBottles}");
+    Console.WriteLine("\n"+"Do you want to use any health bottles? Yes or no?, writing random means 'no'");
+    string healthBottleAns2 = Console.ReadLine().ToLower();
+    if(healthBottleAns2=="yes"){
+        p2.hp += 30;
+        p2.amountHealthBottles--;
+        Console.WriteLine($"{p2.playerName} hp: {p2.hp}");
+    }else{
+        Console.WriteLine("\n");
+    }
+
     
 }
 
