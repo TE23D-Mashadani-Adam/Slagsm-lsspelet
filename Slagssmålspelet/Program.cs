@@ -69,6 +69,15 @@ while (p1.hp > 0 && p2.hp > 0)
 
     }
 
+    if (p1.hp <= 0)
+    {
+        p1.isDead = true;
+    }
+    else if (p2.hp <= 0)
+    {
+        p2.isDead = true;
+    }
+
     //Player 2
     if (p1.isDead == false && p2.isDead == false)
     {
