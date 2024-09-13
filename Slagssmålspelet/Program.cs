@@ -3,6 +3,8 @@ Console.WriteLine("Each player are going to have 100 hp in the beginning, and ev
 ", and every player has 3 healing bottles they can use after punshing!, press enter to start the game" + "\n");
 Console.ReadLine();
 
+
+
 //Creating player objects
 Player p1 = new();
 Player p2 = new();
@@ -16,6 +18,17 @@ p2.hp = 100;
 p1.amountHealthBottles = 3;
 p2.amountHealthBottles = 3;
 
+void checkIfPlayerDead()
+{
+    if (p1.hp <= 0)
+    {
+        p1.isDead = true;
+    }
+    else if (p2.hp <= 0)
+    {
+        p2.isDead = true;
+    }
+}
 
 //Writing down players names
 Console.WriteLine("Write player 1 name:");
@@ -30,14 +43,7 @@ Player player;
 while (p1.hp > 0 && p2.hp > 0)
 {
 
-    if (p1.hp <= 0)
-    {
-        p1.isDead = true;
-    }
-    else if (p2.hp <= 0)
-    {
-        p2.isDead = true;
-    }
+    checkIfPlayerDead();
 
     //Generating random numbers to each player
     p1.randomPunshPower = random.Next(10, 80);
@@ -69,14 +75,7 @@ while (p1.hp > 0 && p2.hp > 0)
 
     }
 
-    if (p1.hp <= 0)
-    {
-        p1.isDead = true;
-    }
-    else if (p2.hp <= 0)
-    {
-        p2.isDead = true;
-    }
+    checkIfPlayerDead();
 
     //Player 2
     if (p1.isDead == false && p2.isDead == false)
