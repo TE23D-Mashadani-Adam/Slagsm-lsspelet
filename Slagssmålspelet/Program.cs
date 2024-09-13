@@ -34,7 +34,7 @@ while(p1.hp>0 && p2.hp>0){
     p2.randomPunshPower = random.Next(10,80);
 
     //Player 1
-
+    if(p1.hp>0){
     Console.WriteLine($"{p1.playerName}'s turn, press enter to punch" + "\n");
     Console.ReadLine();
     p2.playerPunshed();
@@ -43,7 +43,7 @@ while(p1.hp>0 && p2.hp>0){
     if(p2.hp>0){
     Console.WriteLine("\n"+$"{p2.playerName}, do you want to use any health bottles? Yes or no?, writing random means 'no'");
     string healthBottleAns = Console.ReadLine().ToLower();
-    if(healthBottleAns=="yes" && p1.hp>0){
+    if(healthBottleAns=="yes" && p2.hp>0){
         p2.playerHeals();
         p2.amountHealthBottles--;
         Console.WriteLine("\n"+$"{p2.playerName} hp: {p2.hp} Heal bottles: {p2.amountHealthBottles}" + "\n");
@@ -52,8 +52,10 @@ while(p1.hp>0 && p2.hp>0){
     }
     }
 
-    //Player 2
+    }
 
+    //Player 2
+    if(p2.hp>0){
     Console.WriteLine($"{p2.playerName}'s turn, press enter to punch");
     Console.ReadLine();
     p1.playerPunshed();
@@ -67,15 +69,20 @@ while(p1.hp>0 && p2.hp>0){
         p1.playerHeals(); 
         p1.amountHealthBottles--;
         Console.WriteLine($"{p1.playerName} hp: {p1.hp} Heal bottles: {p1.amountHealthBottles}" + "\n");
-    }else{
+    }
+    else{
         Console.WriteLine("\n");
     }
     }
+
+    }
+    
 
 }
 
 if(p1.hp<=0){
     p1.playerDead();
+
     p2.playerVictory();
 }
 else if(p2.hp<=0){

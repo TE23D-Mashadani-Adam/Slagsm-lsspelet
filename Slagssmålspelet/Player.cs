@@ -13,7 +13,14 @@ public class Player
             hp += 30;
     }
     public void playerDead(){
-        Console.WriteLine(playerName+" is dead!!");
+        Console.WriteLine(playerName+" is ");
+        Console.WriteLine("""
+ ____  _____    _    ____  
+|  _ \| ____|  / \  |  _ \ 
+| | | |  _|   / _ \ | | | |
+| |_| | |___ / ___ \| |_| |
+|____/|_____/_/   \_\____/ 
+""" + "\n");
     }
     public void playerVictory(){
         Console.WriteLine("\n"+$"{playerName} has won the game!");
