@@ -114,7 +114,6 @@ while (continuePlaying)
     }
 
 }
-Console.ReadLine();
 
 
 

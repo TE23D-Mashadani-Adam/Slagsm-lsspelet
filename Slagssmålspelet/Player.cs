@@ -20,11 +20,11 @@ public class Player
         punshedPlayer.playerPunshed(randomPunchPower);
         Console.WriteLine($"{punshedPlayer.playerName} hp: {punshedPlayer.hp}");
         Console.WriteLine($"{punshedPlayer.playerName} heal bottles: {punshedPlayer.amountHealthBottles}");
-        if (punshedPlayer.hp > 0)
+        if (punshedPlayer.hp > 0 && punshedPlayer.amountHealthBottles > 0)
         {
             Console.WriteLine("\n" + $"{punshedPlayer.playerName}, do you want to use any health bottles? Yes or no?, writing random means 'no'");
             string healthBottleAns = Console.ReadLine().ToLower();
-            if (healthBottleAns == "yes" && punshedPlayer.isDead == false)
+            if (healthBottleAns == "yes")
             {
                 punshedPlayer.playerHeals();
                 punshedPlayer.amountHealthBottles--;
