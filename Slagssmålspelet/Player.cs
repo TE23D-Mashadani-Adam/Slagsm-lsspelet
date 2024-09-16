@@ -7,28 +7,29 @@ public class Player
     public int amountHealthBottles;
     public bool isDead = false;
 
-    public void playerPunshed()
+    public void playerPunshed(int randomPunchPower)
     {
-        hp -= randomPunshPower;
+        hp -= randomPunchPower;
     }
-    public void playerPunchScene(Player player, Random random)
+    public void playerPunchScene(Player punchingPlayer, Player punshedPlayer, Random random, int randomPunchPower)
     {
-        player.randomPunshPower = random.Next(10,80);
+        randomPunchPower = random.Next(10,80);
 
-        Console.WriteLine($"{player.playerName}'s turn, press enter to punch" + "\n");
+        Console.WriteLine($"{punchingPlayer.playerName}'s turn, press enter to punch" + "\n");
         Console.ReadLine();
-        player.playerPunshed();
-        Console.WriteLine($"{player.playerName} hp: {player.hp}");
-        Console.WriteLine($"{player.playerName} heal bottles: {player.amountHealthBottles}");
-        if (player.hp > 0)
+        punshedPlayer.playerPunshed(randomPunchPower);
+        Console.WriteLine($"{punshedPlayer.playerName} hp: {punshedPlayer.hp}");
+        Console.WriteLine($"{punshedPlayer.playerName} heal bottles: {punshedPlayer.amountHealthBottles}");
+        if (punshedPlayer.hp > 0)
         {
-            Console.WriteLine("\n" + $"{player.playerName}, do you want to use any health bottles? Yes or no?, writing random means 'no'");
+            Console.WriteLine("\n" + $"{punshedPlayer.playerName}, do you want to use any health bottles? Yes or no?, writing random means 'no'");
             string healthBottleAns = Console.ReadLine().ToLower();
-            if (healthBottleAns == "yes" && player.isDead == false)
+            if (healthBottleAns == "yes" && punshedPlayer.isDead == false)
             {
-                player.playerHeals();
-                player.amountHealthBottles--;
-                Console.WriteLine("\n" + $"{player.playerName} hp: {player.hp} Heal bottles: {player.amountHealthBottles}" + "\n");
+                punshedPlayer.playerHeals();
+                punshedPlayer.amountHealthBottles--;
+                Console.WriteLine("\n" + $"{punshedPlayer.playerName} hp: {punshedPlayer.hp} "+ 
+                $"Heal bottles: {punshedPlayer.amountHealthBottles}" + "\n");
             }
             else
             {
