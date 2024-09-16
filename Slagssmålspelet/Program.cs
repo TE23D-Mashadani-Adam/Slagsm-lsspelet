@@ -1,4 +1,8 @@
-﻿Console.WriteLine("Welcome to my 1 v 1 game, pls follow the instructions for how to play below:" + "\n");
+﻿bool continuePlaying = true;
+
+while(continuePlaying){
+
+Console.WriteLine("Welcome to my 1 v 1 game, pls follow the instructions for how to play below:" + "\n");
 Console.WriteLine("Each player are going to have 100 hp in the beginning, and every punsh gives random power" +
 ", and every player has 3 healing bottles they can use after punshing!, press enter to start the game" + "\n");
 Console.ReadLine();
@@ -119,8 +123,17 @@ else if (p2.hp <= 0)
     p1.playerVictory();
 }
 
-Console.WriteLine("\n" + "Press enter to end the game");
+Console.WriteLine("\n" + "Press enter to restart the game, write anything to exit game");
+String ansRestart = Console.ReadLine();
 
+if(ansRestart == String.Empty){
+    continuePlaying = true;
+}else{
+    continuePlaying = false;
+    break;
+}
+
+}
 Console.ReadLine();
 
 
